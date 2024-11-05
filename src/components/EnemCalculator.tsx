@@ -25,20 +25,6 @@ import {
 } from 'lucide-react';
 import { bancoDeDados, type ScoreInfo } from '@/data/bancoDeDados';
 
-// Interfaces
-interface ScoreInfo {
-  minScore: number;
-  avgScore: number;
-  maxScore: number;
-  aboveAvgPct: string;
-}
-
-interface Subject {
-  subject: string;
-  scores: {
-    [acertos: string]: ScoreInfo;
-  };
-}
 
 interface Combinacao {
   id: string;
