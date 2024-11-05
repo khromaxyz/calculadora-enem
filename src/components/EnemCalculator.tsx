@@ -83,6 +83,22 @@ const EnemCalculator: React.FC = () => {
     return scoreInfo || null;
   };
 
+  const CustomActiveDot = (props: any) => {
+    const { cx, cy, stroke, payload, value } = props;
+    const fillColor = payload.media >= Number(notaCorte) ? "#10B981" : "#EF4444";
+  
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={8}
+        fill={fillColor}
+        stroke={stroke}
+        strokeWidth={2}
+      />
+    );
+  };
+  
   const calcularMediaPonderada = (
     notaLC: number,
     notaCH: number,
@@ -903,19 +919,14 @@ const EnemCalculator: React.FC = () => {
                         }}
                       />
                       <Line
-                        type="monotone"
-                        dataKey="media"
-                        stroke="#3B82F6"
-                        strokeWidth={2}
-                        dot={false}
-                        activeDot={{
-                          r: 8,
-                          fill: (data: any) => 
-                            data.payload.media >= Number(notaCorte) 
-                              ? "#10B981" 
-                              : "#EF4444"
-                        }}
-                      />
+  type="monotone"
+  dataKey="media"
+  stroke="#3B82F6"
+  strokeWidth={2}
+  dot={false}
+  activeDot={<CustomActiveDot />}
+/>
+
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
